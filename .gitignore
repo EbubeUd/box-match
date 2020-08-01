@@ -7,7 +7,7 @@ Assets/Audio/
 Assets/Audio.meta
 Assets/Editor Default Resources/
 Assets/Editor Default Resources.meta
-Assets/Prefabs/
+#Assets/Prefabs/
 Assets/Prefabs.meta
 Assets/Prefabs/player.prefab.meta
 Assets/Resources/
