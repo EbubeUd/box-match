@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameObjects\Weapons\Gun.cs" />
+    <Compile Include="Assets\Scripts\GameObjects\Weapons\Trigger.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/GameDevelopment/UnityProjects/Box-Match/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

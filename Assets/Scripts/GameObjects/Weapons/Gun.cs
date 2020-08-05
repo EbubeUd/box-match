@@ -20,11 +20,31 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsIdle && TriggerIsPulled()) {
-            Debug.Log("Fired");
-        }
+        //if (IsIdle && TriggerIsPulled()) {
+        //    Debug.Log("Fired");
+        //}
 
-        IsIdle = !TriggerIsPulled();
+        //IsIdle = !TriggerIsPulled();
+        if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
+        {
+            Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            RaycastHit raycastHit;
+            if (Physics.Raycast(raycast, out raycastHit))
+            {
+                Debug.Log("Something Hit");
+                if (raycastHit.collider.name == "Trigger")
+                {
+                    Debug.Log("Soccer Ball clicked");
+                }
+
+                //OR with Tag
+
+                if (raycastHit.collider.CompareTag("Trigger"))
+                {
+                    Debug.Log("Soccer Ball clicked");
+                }
+            }
+        }
     }
 
 
