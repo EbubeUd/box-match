@@ -39,3 +39,4 @@ Temp/
 .vscode/
 *.sln
 *.meta
+*.csproj
