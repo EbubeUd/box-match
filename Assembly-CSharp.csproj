@@ -54,6 +54,12 @@
     <UnityVersion>2019.3.0f5</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
+     <Compile Include="Assets\Scripts\CustomLibrary\CustomLibrary.cs" />
+     <Compile Include="Assets\Scripts\GameObjects\Weapons\Gun.cs" />
+     <Compile Include="Assets\Scripts\GameObjects\Weapons\Trigger.cs" />
+=======
+>>>>>>> 8d0382d83e5f3a1656d94d56a3172828fb300c91
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.3.0f5\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
