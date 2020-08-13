@@ -4,11 +4,11 @@ using UnityEngine;
 
 
 /* 
- * Trigger class defines a trigger that is used to fire a gun
+ * Trigger class defines a trigger that can be used to fire the gun
  */
 public class Trigger : MonoBehaviour
 {
-    // The gun that this trigger is associated with
+    // The gun that this trigger is attached to
     Gun parentGun;
 
 
