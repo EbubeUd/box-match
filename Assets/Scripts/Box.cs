@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity;
 
 public class Box : MonoBehaviour
 {
@@ -15,6 +16,15 @@ public class Box : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Bullet")
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
