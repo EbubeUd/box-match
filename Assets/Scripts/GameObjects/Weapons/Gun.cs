@@ -3,54 +3,73 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// Gun class defines the gun used in this game
+/*
+ * Gun class defines a gun used in this game
+ */
 public class Gun : MonoBehaviour
 {
-    // Flag that indicates whether or not this gun is idle
-    bool IsIdle;
+    // Reference to the prefab that is used as a blueprint for spawning bullets
+    public Rigidbody2D PrefabOfBullet;
 
 
-    // Start is called before the first frame update
-    void Start()
+    // Bullet that has been spawned and made ready to be launched
+    private Rigidbody2D LaunchableBullet;
+
+
+    // Velocity at which this gun launches its bullets
+    private Vector2 LaunchVelocity;
+
+
+    // Called before the first frame update
+    private void Start()
     {
-        IsIdle = true;
+        LaunchVelocity = new Vector2(0, 25);
+        SpawnLaunchableBullet();
+    }
+    
+
+    // Spawns a launchable bullet
+    private void SpawnLaunchableBullet()
+    {
+        LaunchableBullet = Instantiate(PrefabOfBullet, GetPositionOfNozzle(), Quaternion.identity);
     }
 
 
-    // Update is called once per frame
-    void Update()
+    // Returns the position of this gun's nozzle
+    private Vector3 GetPositionOfNozzle()
     {
-        //if (IsIdle && TriggerIsPulled()) {
-        //    Debug.Log("Fired");
-        //}
+        Transform thisGameObject = this.gameObject.transform;
+        Vector3 positionOfNozzle = thisGameObject.position;
 
-        //IsIdle = !TriggerIsPulled();
-        if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
-        {
-            Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            RaycastHit raycastHit;
-            if (Physics.Raycast(raycast, out raycastHit))
-            {
-                Debug.Log("Something Hit");
-                if (raycastHit.collider.name == "Trigger")
-                {
-                    Debug.Log("Soccer Ball clicked");
-                }
+        for (int i = 0; i < thisGameObject.childCount; i++) {
 
-                //OR with Tag
-
-                if (raycastHit.collider.CompareTag("Trigger"))
-                {
-                    Debug.Log("Soccer Ball clicked");
-                }
+            if (thisGameObject.GetChild(i).name == "Nozzle") {
+                positionOfNozzle = thisGameObject.GetChild(i).position;
+                break;
             }
+        }
+
+        return positionOfNozzle;
+    }
+
+
+    // Fires this gun
+    public void Fire()
+    {
+        if (LaunchableBullet != null) {
+            LaunchBullet();
+            Invoke("SpawnLaunchableBullet", 0.5f);
         }
     }
 
 
-    // Returns true if the trigger of this gun is pulled, returns false otherwise
-    bool TriggerIsPulled()
+    // Launches the current launchable bullet
+    private void LaunchBullet()
     {
-        return Input.GetAxis("PullTrigger") > 0;
+        if (LaunchableBullet != null) {
+            LaunchableBullet.isKinematic = false;
+            LaunchableBullet.velocity = LaunchVelocity;
+            LaunchableBullet = null;
+        }
     }
 }
