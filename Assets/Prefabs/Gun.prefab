@@ -108,7 +108,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1185779271}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c72ed4b2459f174498f9d457739b6aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c1642bdfe52dda4c8f550b63ef9ee13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5371550717421106178
@@ -150,8 +150,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8802130423837511142}
-  - component: {fileID: 8802130423837511137}
   - component: {fileID: 8802130423913294221}
+  - component: {fileID: 8123806195121682009}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -175,20 +175,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8802130423837511137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8802130423837511136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c9779bce503693409ad3aba70a956af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrefabOfBullet: {fileID: 7816644851803148422, guid: f263f5169e030ed4d9aff46f6ebe7dae,
-    type: 3}
 --- !u!212 &8802130423913294221
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -239,3 +225,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8123806195121682009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802130423837511136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2cbf220aaf01b439c13222be7ba798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabOfBullet: {fileID: 7816644851803148422, guid: 2963bc9dd95755e4a9c95ffd939b3e0d,
+    type: 3}
