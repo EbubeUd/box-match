@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1.25, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 8802130423837511142}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1185779275
 SpriteRenderer:
@@ -111,6 +111,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c72ed4b2459f174498f9d457739b6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5371550717421106178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6686687119124180490}
+  m_Layer: 0
+  m_Name: Nozzle
+  m_TagString: Nozzle
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6686687119124180490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371550717421106178}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.08, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8802130423837511142}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8802130423837511136
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,6 +170,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 10, z: 1}
   m_Children:
+  - {fileID: 6686687119124180490}
   - {fileID: 1185779272}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -156,6 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9779bce503693409ad3aba70a956af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PrefabOfBullet: {fileID: 7816644851803148422, guid: f263f5169e030ed4d9aff46f6ebe7dae,
+    type: 3}
 --- !u!212 &8802130423913294221
 SpriteRenderer:
   m_ObjectHideFlags: 0
