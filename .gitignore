@@ -34,3 +34,4 @@ ProjectSettings/
 Temp/
 .vs/
 *.meta
+*.csproj
