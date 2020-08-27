@@ -21,7 +21,7 @@ public class Box : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Bullet")
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(gameObject);
         }
