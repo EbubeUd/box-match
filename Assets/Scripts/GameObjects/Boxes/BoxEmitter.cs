@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Enums;
+using Assets.Scripts.Management;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,7 +40,7 @@ namespace Assets.Scripts.GameObjects.Boxes
             GameObject boxHolderObject = Instantiate(BoxPrefab, transform.position, Quaternion.identity);
             BoxHolder boxHolder = boxHolderObject.GetComponent<BoxHolder>();
             boxHolder.ColumnType = ColumnType;
-            boxHolder.BoxType = BoxType.A;
+            boxHolder.BoxType = (BoxType)GameManager.Instance.Rand.Next(0, 3);
         }
 
 

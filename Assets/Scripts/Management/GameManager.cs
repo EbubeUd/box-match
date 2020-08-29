@@ -9,12 +9,14 @@ namespace Assets.Scripts.Management
         public static GameManager Instance;
         [HideInInspector]
         public bool IsGamePaused;
+        public System.Random Rand;
 
         void Awake()
         {
             if (Instance == null)
             {
                 Instance = this;
+                Rand = new System.Random();
             }
         }
 

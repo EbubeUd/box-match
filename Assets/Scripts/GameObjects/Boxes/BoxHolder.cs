@@ -10,7 +10,7 @@ namespace Assets.Scripts.GameObjects.Boxes
 {
     public class BoxHolder : FallingObject
     {
-        [HideInInspector]
+       // [HideInInspector]
         public BoxType BoxType;
 
         [HideInInspector]

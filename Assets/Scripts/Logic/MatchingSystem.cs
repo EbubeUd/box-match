@@ -14,9 +14,11 @@ namespace Assets.Scripts.Logic
         public static List<List<Box>> SpawnedBoxes= new List<List<Box>>();  
 
         List<Box> BoxesToDestroy = new List<Box>();
+        bool isBeingModified;
 
         void DetectMatchingBoxes()
-        { 
+        {
+            if (isBeingModified) return;
             //Detect on the vertical
             for(int c = 0; c< 4; c++)
             {
@@ -37,40 +39,51 @@ namespace Assets.Scripts.Logic
                 }
             }
 
-            for(int i = 0; i<4; i++)
+            //Detect on Horizontal
+            for(int r = 0; r<4; r++)
             {
-                BoxType firstBoxType = SpawnedBoxes[0][0].GetBoxType();
+                BoxType firstBoxType = SpawnedBoxes[0][r].GetBoxType();
                 bool isMatch = true;
-                for(int j = 0; j<4; j++)
+                for(int c = 0; c<4; c++)
                 {
-                    if(SpawnedBoxes[j][i].GetBoxType() != firstBoxType)
+                    if(SpawnedBoxes[c][r].GetBoxType() != firstBoxType)
                     {
-
+                        isMatch = false;
+                    }
+                    else
+                    {
+       
                     }
                 }
+                if (isMatch)
+                {
+                    DestroyBoxesInRow(r);
+                }
             }
+
+            DestroyBoxes();
         }
 
-        void DestroyBoxesInColumn(int column)
-        {
-            for(int i = 0; i<4; i++)
-            {
-                BoxesToDestroy.Add(SpawnedBoxes[i][column]);
-            }
-        }
+
 
         void DestroyBoxesInRow(int row)
         {
             for(int i = 0; i<4; i++)
             {
-                BoxesToDestroy.Add(SpawnedBoxes[row][i]);
+                BoxesToDestroy.Add(SpawnedBoxes[i][row]);
+                SpawnedBoxes[i].Remove(SpawnedBoxes[i][row]);
             }
         }
 
         public void AddBox(ColumnType column, Box box)
         {
-        
+            isBeingModified = true;
+            int col = (int)column;
+            SpawnedBoxes[col].Remove(SpawnedBoxes[col][0]);
+            SpawnedBoxes[col].Add(box);
+            isBeingModified = false;
         }
+
 
         public void DestroyBoxes()
         {
