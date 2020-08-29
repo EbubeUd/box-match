@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1550373811842416545}
   - component: {fileID: 1550373811842416544}
   - component: {fileID: 1550373811842416547}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ButtomWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,5 +106,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 50, y: 0.1}
+  m_Size: {x: 0.15, y: 0.1}
   m_EdgeRadius: 0

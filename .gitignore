@@ -12,10 +12,13 @@ Assets/Prefabs.meta
 Assets/Prefabs/player.prefab.meta
 Assets/Resources/
 Assets/Resources.meta
-Assets/Scenes/
+#Assets/Scenes/
 Assets/Scenes/ControlsTestScene.unity.meta
+Assets/Scenes/ControlsTestScene.unity
 Assets/Scenes/game.unity.meta
+Assets/Scenes/game.unity
 Assets/Scenes/SampleScene.unity.meta
+#Assets/Scenes/SampleScene.unity
 Assets/Scenes.meta
 Assets/Sprites/
 Assets/Sprites/Bot_Sprite.png.meta

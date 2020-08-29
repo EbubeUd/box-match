@@ -12,6 +12,9 @@ public class DelegateHandler : MonoBehaviour
     public delegate void OnGunFired();
 
 
-    // Instant of the OnGunFired delegate
+    // Instance of the OnGunFired delegate
     public static OnGunFired GunFired;
+
+
+
 }
