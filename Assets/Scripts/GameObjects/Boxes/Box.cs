@@ -25,10 +25,16 @@ namespace Assets.Scripts.GameObjects.Boxes
         {
             if (collision.gameObject.CompareTag("Bullet"))
             {
-                DelegateHandler.BoxDestroyed(parentHolder.ColumnType, parentHolder.BoxType);
                 Destroy(collision.gameObject);
-                Destroy(transform.parent.gameObject);
+                DestroyBox();
             }
+        }
+
+
+        public void DestroyBox()
+        {
+            DelegateHandler.BoxDestroyed(parentHolder.ColumnType, parentHolder.BoxType);
+            Destroy(transform.parent.gameObject);
         }
 
      

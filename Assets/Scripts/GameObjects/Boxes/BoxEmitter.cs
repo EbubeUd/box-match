@@ -23,7 +23,7 @@ namespace Assets.Scripts.GameObjects.Boxes
         {
             for(int i = 0; i<4; i++)
             {
-                Invoke("SpawnBox", i);
+                Invoke("SpawnBox", i*0.3f);
             }
         }
 
