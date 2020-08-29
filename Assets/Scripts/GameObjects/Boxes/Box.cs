@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Unity;
+using Assets.Scripts.Enums;
 
 namespace Assets.Scripts.GameObjects.Boxes
 {
@@ -30,6 +31,10 @@ namespace Assets.Scripts.GameObjects.Boxes
             }
         }
 
+        public BoxType GetBoxType()
+        {
+            return parentHolder.BoxType;
+        }
 
         public void DestroyBox()
         {
