@@ -34,4 +34,4 @@ namespace Assets.Scripts.GameObjects.Boxes
             SetRigidBody(GetComponent<Rigidbody2D>());
         }
     }
-}
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
