@@ -31,7 +31,7 @@ namespace Assets.Scripts.GameObjects.Boxes
         void OnBoxDestroyed(ColumnType columnType, BoxType boxType)
         {
             if (columnType != ColumnType) return;
-            SpawnBox();
+            Invoke("SpawnBox", 0.3f);
         }
 
         void SpawnBox()
