@@ -3,6 +3,7 @@ using UnityEngine.Audio;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Enums;
 
 public class AudioManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BoxDestroyed();
+        DelegateHandler.BoxDestroyed += BoxDestroyed;
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    void BoxDestroyed()
+    void BoxDestroyed(ColumnType columnType, BoxType boxType)
     {
         AudioSource audioSource = AudioSources.FirstOrDefault(x => x.isPlaying == false);
         if (audioSource)
@@ -32,5 +33,10 @@ public class AudioManager : MonoBehaviour
             audioSource.Play();
         }
 
+    }
+
+    private void OnDestroy()
+    {
+        DelegateHandler.BoxDestroyed -= BoxDestroyed;
     }
 }

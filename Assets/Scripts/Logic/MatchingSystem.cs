@@ -141,7 +141,7 @@ namespace Assets.Scripts.Logic
             for (int i = 0; i<BoxesToDestroy.Count; i++)
             {
                 for(int j = 0; j<4; j++) SpawnedBoxes[j].Remove(BoxesToDestroy[i]);
-                if (BoxesToDestroy[i] != null) BoxesToDestroy[i].DestroyBox();               
+                if (BoxesToDestroy[i] != null) BoxesToDestroy[i].Invoke("DestroyBox", i*0.1f);               
             }
     
             BoxesToDestroy.Clear();
