@@ -59,6 +59,10 @@ public class Gun : MonoBehaviour
         if (LaunchableBullet != null) {
             LaunchBullet();
             Invoke("SpawnLaunchableBullet", 0.5f);
+
+            if (DelegateHandler.GunFired != null) {
+                DelegateHandler.GunFired.Invoke();
+            }
         }
     }
 
