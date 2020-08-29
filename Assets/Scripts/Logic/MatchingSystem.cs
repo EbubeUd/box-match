@@ -11,50 +11,74 @@ namespace Assets.Scripts.Logic
 {
     public class MatchingSystem : MonoBehaviour
     {
-        public static Box[,] SpawnedBoxes= new Box[4, 4];// 4 rows and 4 cols
+        public static List<List<Box>> SpawnedBoxes= new List<List<Box>>();  
 
+        List<Box> BoxesToDestroy = new List<Box>();
 
         void DetectMatchingBoxes()
-        {
-
-            //detect on the horizontal axis
-            for(int r = 0; r<4; r++)
+        { 
+            //Detect on the vertical
+            for(int c = 0; c< 4; c++)
             {
-                BoxType currentType = SpawnedBoxes[r, 0].GetBoxType();
+                BoxType firstBoxType = SpawnedBoxes[c][0].GetBoxType();
                 bool isMatch = true;
-                for (int j = 0; j<4; j++)
+                for (int r = 0; r<4; r++)
                 {
-                    if(SpawnedBoxes[r,j].GetBoxType() != currentType)
+                    if(SpawnedBoxes[c][r].GetBoxType() != firstBoxType)
                     {
                         isMatch = false;
                         break;
                     }
                 }
-                if (isMatch)
+                if(isMatch)
                 {
-                    DestroyBoxesInRow(r);
+                    BoxesToDestroy.AddRange(SpawnedBoxes[c]);
+                    SpawnedBoxes[c].RemoveRange(0, 4);
                 }
             }
 
-            
+            for(int i = 0; i<4; i++)
+            {
+                BoxType firstBoxType = SpawnedBoxes[0][0].GetBoxType();
+                bool isMatch = true;
+                for(int j = 0; j<4; j++)
+                {
+                    if(SpawnedBoxes[j][i].GetBoxType() != firstBoxType)
+                    {
+
+                    }
+                }
+            }
         }
 
         void DestroyBoxesInColumn(int column)
         {
-
+            for(int i = 0; i<4; i++)
+            {
+                BoxesToDestroy.Add(SpawnedBoxes[i][column]);
+            }
         }
 
         void DestroyBoxesInRow(int row)
         {
             for(int i = 0; i<4; i++)
             {
-                SpawnedBoxes[row, i].DestroyBox();
+                BoxesToDestroy.Add(SpawnedBoxes[row][i]);
             }
         }
 
-        public void AddBox()
+        public void AddBox(ColumnType column, Box box)
         {
+        
+        }
 
+        public void DestroyBoxes()
+        {
+            for(int i = 0; i<BoxesToDestroy.Count; i++)
+            {
+                if (BoxesToDestroy[i] != null) BoxesToDestroy[i].DestroyBox();               
+            }
+            BoxesToDestroy.Clear();
         }
     }
 }
