@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Enums;
 using UnityEngine;
 using Unity;
 using Assets.Scripts.Enums;
@@ -42,6 +43,28 @@ namespace Assets.Scripts.GameObjects.Boxes
             Destroy(transform.parent.gameObject);
         }
 
+        public void SetUpVisuals()
+        {
+            switch (parentHolder.BoxType)
+            {
+                // Rendering red color
+                case BoxType.A:
+                    spriteRenderer.color = new Color(255, 0, 0);
+                    break;
+                //Rendering blue color
+                case BoxType.B:
+                    spriteRenderer.color = new Color(0, 0, 255);
+                    break;
+                // Rendering yellow color
+                case BoxType.C:
+                    spriteRenderer.color = new Color(255, 255, 0);
+                    break;
+                // Rendering green color
+                case BoxType.D:
+                    spriteRenderer.color = new Color(0, 255, 0);
+                    break;
+            }
+        }
      
     
     }
