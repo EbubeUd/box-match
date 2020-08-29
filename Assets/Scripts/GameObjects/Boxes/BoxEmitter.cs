@@ -1,26 +1,51 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Enums;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxEmitter : MonoBehaviour
+namespace Assets.Scripts.GameObjects.Boxes
 {
-    public GameObject BoxPrefab;
-
-    // Start is called before the first frame update
-    void Start()
+    public class BoxEmitter : MonoBehaviour
     {
-        Debug.Log("Started");
-        InvokeRepeating("SpawnBox", 2f, 2f);
-    }
+        public GameObject BoxPrefab;
+        public ColumnType ColumnType;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            DelegateHandler.BoxDestroyed += OnBoxDestroyed;
+            SpawnInitialBoxes();
+        }
 
-    void SpawnBox()
-    {
-        Instantiate(BoxPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+
+  
+        void SpawnInitialBoxes()
+        {
+            for(int i = 0; i<4; i++)
+            {
+                Invoke("SpawnBox", i);
+            }
+        }
+
+
+        void OnBoxDestroyed(ColumnType columnType, BoxType boxType)
+        {
+            if (columnType != ColumnType) return;
+            SpawnBox();
+        }
+
+        void SpawnBox()
+        {
+            GameObject boxHolderObject = Instantiate(BoxPrefab, transform.position, Quaternion.identity);
+            BoxHolder boxHolder = boxHolderObject.GetComponent<BoxHolder>();
+            boxHolder.ColumnType = ColumnType;
+            boxHolder.BoxType = BoxType.A;
+        }
+
+
+        private void OnDestroy()
+        {
+            DelegateHandler.BoxDestroyed -= OnBoxDestroyed;
+        }
     }
 }

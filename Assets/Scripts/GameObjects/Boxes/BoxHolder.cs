@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,13 @@ namespace Assets.Scripts.GameObjects.Boxes
 {
     public class BoxHolder : FallingObject
     {
+        [HideInInspector]
+        public BoxType BoxType;
+
+        [HideInInspector]
+        public ColumnType ColumnType;
+
+
         private void Start()
         {
             SetupFallingObject();
