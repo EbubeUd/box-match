@@ -2,36 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace Assets.Scripts.Management
 {
-    public static GameManager Instance;
-    [HideInInspector]
-    public bool IsGamePaused;
-
-    void Awake()
+    public class GameManager : MonoBehaviour
     {
-        if (Instance == null)
+        public static GameManager Instance;
+        [HideInInspector]
+        public bool IsGamePaused;
+
+        void Awake()
         {
-            Instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+            }
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        }
 
-    
-    void PauseGame(bool status)
-    {
-        IsGamePaused = status;
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+
+        void PauseGame(bool status)
+        {
+            IsGamePaused = status;
+        }
+
     }
 
 }
