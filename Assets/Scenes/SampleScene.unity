@@ -517,7 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoxPrefab: {fileID: 855260307128878658, guid: 350b619a88dfb3640a49b574fa5418eb,
     type: 3}
-  BoxType: 2
+  ColumnType: 2
 --- !u!4 &734516306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2887501639017098259, guid: 5bd277f7a61d3d149a777ef1c7ca404f,
@@ -665,7 +665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoxPrefab: {fileID: 855260307128878658, guid: 350b619a88dfb3640a49b574fa5418eb,
     type: 3}
-  BoxType: 1
+  ColumnType: 1
 --- !u!1001 &1336259381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -831,7 +831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoxPrefab: {fileID: 855260307128878658, guid: 350b619a88dfb3640a49b574fa5418eb,
     type: 3}
-  BoxType: 3
+  ColumnType: 3
 --- !u!4 &1435437675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2887501639017098259, guid: 5bd277f7a61d3d149a777ef1c7ca404f,
@@ -883,7 +883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoxPrefab: {fileID: 855260307128878658, guid: 350b619a88dfb3640a49b574fa5418eb,
     type: 3}
-  BoxType: 0
+  ColumnType: 0
 --- !u!4 &1550074599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2887501639017098259, guid: 5bd277f7a61d3d149a777ef1c7ca404f,
