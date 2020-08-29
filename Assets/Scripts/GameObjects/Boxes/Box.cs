@@ -4,6 +4,7 @@ using Assets.Scripts.Enums;
 using UnityEngine;
 using Unity;
 using Assets.Scripts.Enums;
+using Assets.Scripts.Logic;
 
 namespace Assets.Scripts.GameObjects.Boxes
 {
@@ -20,6 +21,8 @@ namespace Assets.Scripts.GameObjects.Boxes
             spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = Sprite;
             parentHolder = transform.parent.gameObject.GetComponent<BoxHolder>();
+            SetUpVisuals();
+            MatchingSystem.Instance.AddBox(parentHolder.ColumnType, this);
         }
 
 
